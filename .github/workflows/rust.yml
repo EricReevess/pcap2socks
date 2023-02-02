@@ -27,11 +27,14 @@ jobs:
     - name: Download cross
       run:  cargo install cross
       if: matrix.os == 'ubuntu-latest'
-    - name: Build arm
-      run: cross build --release --target=armv7-unknown-linux-gnueabihf --verbose
+    #- name: Build arm
+    #  run: cross build --release --target=armv7-unknown-linux-gnueabihf --verbose
+    #  if: matrix.os == 'ubuntu-latest'
+    - name: Build android-armv7
+      run: cross build --release --target=armv7-linux-androideabi --verbose
       if: matrix.os == 'ubuntu-latest'
-    - name: Build android
-      run: cross build --release --target=aarch64-linux-android --verbose
+    - name: Build android-arm
+      run: cross build --release --target=arm-linux-androideabi --verbose
       if: matrix.os == 'ubuntu-latest'
     - name: Build
       run:  cargo build --release --verbose
