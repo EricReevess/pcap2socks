@@ -30,9 +30,9 @@ jobs:
     #- name: Build arm
     #  run: cross build --release --target=armv7-unknown-linux-gnueabihf --verbose
     #  if: matrix.os == 'ubuntu-latest'
-    - name: Build android-armv7
-      run: cross build --release --target=armv7-linux-androideabi --verbose
-      if: matrix.os == 'ubuntu-latest'
+    #- name: Build android-armv7
+    #  run: cross build --release --target=armv7-linux-androideabi --verbose
+    #  if: matrix.os == 'ubuntu-latest'
     - name: Build android-arm
       run: cross build --release --target=arm-linux-androideabi --verbose
       if: matrix.os == 'ubuntu-latest'
