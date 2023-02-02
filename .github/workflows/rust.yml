@@ -15,6 +15,7 @@ jobs:
           - windows-latest
           - ubuntu-latest
           - macos-latest
+          - android-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -30,6 +31,9 @@ jobs:
     - name: Build arm
       run: cross build --release --target=armv7-unknown-linux-gnueabihf --verbose
       if: matrix.os == 'ubuntu-latest'
+    - name: Build android
+      run: cross build --release --target=aarch64-linux-android --verbose
+      if: matrix.os == 'android-latest'
     - name: Build
       run:  cargo build --release --verbose
     - name: Run tests
